@@ -1,7 +1,7 @@
 from fastapi import FastApi
 
-from core.config import settings
-
+from store.core.config import settings
+from store.routers import api_router
 
 class App(FastApi):
     def __init__(self, *args, **kwargs) -> None:
@@ -15,3 +15,4 @@ class App(FastApi):
 
 
 app = App()
+app.include_router(api_router)
